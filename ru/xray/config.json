@@ -82,23 +82,12 @@
               {
                 "id": "ab003d0d-1bc5-43f3-be34-a985646a8d32",
                 "flow": "xtls-rprx-vision",
-                "encryption": "none"
+                "encryption": "none",
+                "level": 0
               }
             ]
           }
         ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "reality",
-        "realitySettings": {
-          "show": false,
-          "fingerprint": "chrome",
-          "serverName": "",
-          "publicKey": "-_u5Gw06E-oP4dga4_avQxQH1Gtzva4sylk1rnhHN1c",
-          "shortId": "14ccd4a1bd226397",
-          "spiderX": ""
-        }
       }
     },
     {
