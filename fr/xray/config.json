@@ -1,10 +1,6 @@
 {
   "log": {
-    "loglevel": "info"
-  },
-  "routing": {
-    "rules": [],
-    "domainStrategy": "AsIs"
+    "loglevel": "debug"
   },
   "inbounds": [
     {
@@ -15,7 +11,6 @@
         "clients": [
           {
             "id": "ab003d0d-1bc5-43f3-be34-a985646a8d32",
-            "email": "hasim_demir@mail.ru",
             "flow": "xtls-rprx-vision"
           }
         ],
@@ -44,8 +39,10 @@
         "enabled": true,
         "destOverride": [
           "http",
-          "tls"
-        ]
+          "tls",
+          "quic"
+        ],
+        "routeOnly": true
       }
     }
   ],
@@ -53,10 +50,6 @@
     {
       "protocol": "freedom",
       "tag": "direct"
-    },
-    {
-      "protocol": "blackhole",
-      "tag": "block"
     }
   ]
 }

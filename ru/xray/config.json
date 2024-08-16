@@ -1,37 +1,12 @@
 {
   "log": {
-    "loglevel": "error"
-  },
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "geosite:private",
-          "geosite:CATEGORY-GOV-RU",
-          "geosite:YANDEX",
-          "geosite:MAILRU",
-          "regexp:.ru$"
-        ],
-        "ip": [
-          "geoip:private",
-          "geoip:RU"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "to_west",
-        "network": "tcp,udp"
-      }
-    ],
-    "domainStrategy": "AsIs"
+    "loglevel": "debug"
   },
   "inbounds": [
     {
       "port": 443,
       "protocol": "vless",
-      "tag": "vless_tls_ru",
+      "tag": "inbound-vless",
       "settings": {
         "clients": [
           {
@@ -39,56 +14,57 @@
             "flow": "xtls-rprx-vision"
           }
         ],
-        "decryption": "none"
+        "decryption": "none",
+        "fallbacks": []
       },
       "streamSettings": {
         "network": "tcp",
         "security": "reality",
         "realitySettings": {
           "show": false,
-          "dest": "vk.com:443",
+          "dest": "ya.ru:443",
           "xver": 0,
-          "serverNames": [
-            "ya.ru"
-          ],
-          "privateKey": "cBFv_AyulgBTkcapQh_qUW72NeOgqTbhMcKnMQRVaC8",
-          "minClientVer": "",
-          "maxClientVer": "",
-          "maxTimeDiff": 0,
+          "privateKey": "cBFv_AyulgBTkcapQh_qUW72NeOgqTbhMcKnMQRVaC8y",
           "shortIds": [
             "f3f6c995dffb0476"
+          ],
+          "serverNames": [
+            "ya.ru"
           ]
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     }
   ],
   "outbounds": [
     {
       "protocol": "vless",
-      "tag": "to_west",
+      "tag": "outbound-vless",
       "settings": {
         "vnext": [
           {
-            "address": "127.0.0.1",
+            "address": "0.0.0.0",
             "port": 1986,
             "users": [
               {
                 "id": "ab003d0d-1bc5-43f3-be34-a985646a8d32",
-                "flow": "xtls-rprx-vision",
                 "encryption": "none",
-                "level": 0
+                "flow": "xtls-rprx-vision"
               }
             ]
           }
         ]
-      }
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+            "fingerprint": "chrome", 
+            "serverName": "",
+            "publicKey": "-_u5Gw06E-oP4dga4_avQxQH1Gtzva4sylk1rnhHN1c",
+            "spiderX": "",
+            "shortId": "14ccd4a1bd226397"
+        }
+    }
     },
     {
       "protocol": "freedom",
