@@ -21,7 +21,8 @@
       },
       {
         "type": "field",
-        "outboundTag": "to_west"
+        "outboundTag": "to_west",
+        "network": "tcp,udp"
       }
     ],
     "domainStrategy": "AsIs"
@@ -34,7 +35,7 @@
       "settings": {
         "clients": [
           {
-            "id": "",
+            "id": "943cc662-2ad2-469c-ba15-58d700fa859f",
             "flow": "xtls-rprx-vision"
           }
         ],
@@ -93,7 +94,7 @@
         "realitySettings": {
           "show": false,
           "fingerprint": "chrome",
-          "serverName": "www.bing.com",
+          "serverName": "",
           "publicKey": "-_u5Gw06E-oP4dga4_avQxQH1Gtzva4sylk1rnhHN1c",
           "shortId": "14ccd4a1bd226397",
           "spiderX": ""

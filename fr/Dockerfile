@@ -18,7 +18,7 @@ COPY get-client-settings.sh .
 COPY regenerate-client-settings.sh .
 COPY entrypoint.sh .
 
-EXPOSE 443
+EXPOSE 1986
 ENTRYPOINT [ "/bin/bash","./entrypoint.sh" ]
 
 
