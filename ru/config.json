@@ -1,0 +1,113 @@
+{
+  "log": {
+    "loglevel": "error"
+  },
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "geosite:private",
+          "geosite:CATEGORY-GOV-RU",
+          "geosite:YANDEX",
+          "geosite:MAILRU",
+          "regexp:.ru$",
+          "ext:/usr/share/xray/ru.dat:all"
+        ],
+        "ip": [
+          "geoip:private",
+          "geoip:RU"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "to_west"
+      }
+    ],
+    "domainStrategy": "AsIs"
+  },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "tag": "vless_tls_ru",
+      "settings": {
+        "clients": [
+          {
+            "id": "",
+            "flow": "xtls-rprx-vision"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "",
+          "xver": 0,
+          "serverNames": [
+            ""
+          ],
+          "privateKey": "",
+          "minClientVer": "",
+          "maxClientVer": "",
+          "maxTimeDiff": 0,
+          "shortIds": [
+            "aabbccdd"
+          ]
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "tag": "to_west",
+      "settings": {
+        "vnext": [
+          {
+            "address": "127.0.0.1",
+            "port": 1986,
+            "users": [
+              {
+                "id": "ab003d0d-1bc5-43f3-be34-a985646a8d32",
+                "flow": "xtls-rprx-vision",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "fingerprint": "chrome",
+          "serverName": "www.bing.com",
+          "publicKey": "-_u5Gw06E-oP4dga4_avQxQH1Gtzva4sylk1rnhHN1c",
+          "shortId": "14ccd4a1bd226397",
+          "spiderX": ""
+        }
+      }
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 FROM alpine:latest
-LABEL mantainer="myelectronix"
+LABEL mantainer="h4zzkR"
 
 ARG XRAY_CORE_VERSION=v1.8.4
-ENV SNI=www.samsung.com
-ENV SHORT_ID=aabbccdd
+ENV SNI=38.180.0.177
+ENV SHORT_ID=f3f6c995dffb0476
 
 RUN set -e &&\
     apk add --no-cache bash libqrencode curl &&\

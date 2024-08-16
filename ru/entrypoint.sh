@@ -31,11 +31,11 @@ sed -i 's/"privateKey":.*/"privateKey": "'${PRIVATE}'",/' config/config.json
 touch $LOCKFILE
 fi
 
-sed -i 's/"dest":.*/"dest": "'${SNI}':443",/' config/config.json
-sed -i '/serverNames/{n;s/.*/\t\t\t\t"'${SNI}'"/}' config/config.json
-sed -i '/shortIds/{n;s/.*/\t\t\t\t"'${SHORT_ID}'"/}' config/config.json
+# sed -i 's/"dest":.*/"dest": "'${SNI}':443",/' config/config.json
+# sed -i '/serverNames/{n;s/.*/\t\t\t\t"'${SNI}'"/}' config/config.json
+# sed -i '/shortIds/{n;s/.*/\t\t\t\t"'${SHORT_ID}'"/}' config/config.json
 
 #run proxy
-echo "XTLS reality starting..."
+echo "Bivrest Russian endpoint is starting..."
 /opt/xray/xray run -config /opt/xray/config/config.json 
 

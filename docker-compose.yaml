@@ -1,15 +1,16 @@
 version: '3.8'
 services:
-  xtls-reality:
-    image:  myelectronix/xtls-reality:latest
-    environment:
-      - SNI=www.samsung.com
-      - SHORT_ID=aabbccdd
-    container_name: xtls-reality
+  bivrest:
+    build:
+      context: ru/
+      dockerfile: ru/Dockerfile
+    # environment:
+    #   - SNI=www.samsung.com
+    #   - SHORT_ID=aabbccdd
     restart: always
     ports:
       - "443:443"
     volumes:
-      - xtls-reality-volume:/opt/xray/config
+      - bivrest-volume:/opt/xray/config
 volumes:
-  xtls-reality-volume:
+  bivrest-volume:
