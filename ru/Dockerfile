@@ -2,8 +2,6 @@ FROM alpine:latest
 LABEL mantainer="h4zzkR"
 
 ARG XRAY_CORE_VERSION=v1.8.4
-ENV SNI=38.180.0.177
-ENV SHORT_ID=f3f6c995dffb0476
 
 RUN set -e &&\
     apk add --no-cache bash libqrencode curl &&\
@@ -15,11 +13,11 @@ RUN set -e &&\
 
 WORKDIR /opt/xray
 
-COPY ru/config.json config/config.json
+COPY config.json config/config.json
 COPY get-client-qr.sh .
 COPY get-client-settings.sh .
 COPY regenerate-client-settings.sh .
-COPY ru/entrypoint.sh .
+COPY entrypoint.sh .
 
 EXPOSE 443
 ENTRYPOINT [ "/bin/bash","./entrypoint.sh" ]

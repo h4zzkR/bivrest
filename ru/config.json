@@ -50,12 +50,12 @@
           "serverNames": [
             ""
           ],
-          "privateKey": "",
+          "privateKey": "cBFv_AyulgBTkcapQh_qUW72NeOgqTbhMcKnMQRVaC8",
           "minClientVer": "",
           "maxClientVer": "",
           "maxTimeDiff": 0,
           "shortIds": [
-            "aabbccdd"
+            "f3f6c995dffb0476"
           ]
         }
       },

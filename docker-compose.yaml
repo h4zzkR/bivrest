@@ -2,8 +2,8 @@ version: '3.8'
 services:
   bivrest:
     build:
-      context: .
-      dockerfile: ru/Dockerfile
+      context: ru
+      dockerfile: Dockerfile
     # environment:
     #   - SNI=www.samsung.com
     #   - SHORT_ID=aabbccdd
