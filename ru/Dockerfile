@@ -15,11 +15,11 @@ RUN set -e &&\
 
 WORKDIR /opt/xray
 
-COPY config.json config/config.json
+COPY ru/config.json config/config.json
 COPY get-client-qr.sh .
 COPY get-client-settings.sh .
 COPY regenerate-client-settings.sh .
-COPY entrypoint.sh .
+COPY ru/entrypoint.sh .
 
 EXPOSE 443
 ENTRYPOINT [ "/bin/bash","./entrypoint.sh" ]
